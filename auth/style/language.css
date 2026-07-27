@@ -1,0 +1,10 @@
+.language {
+  position: absolute;
+
+  top: 5px;
+  right: 30px;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}

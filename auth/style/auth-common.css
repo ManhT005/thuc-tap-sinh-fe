@@ -1,0 +1,138 @@
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-input {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.form-input:focus {
+  border-color: #d72d38;
+}
+
+.form-options {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin: 18px 0 24px;
+
+  font-size: 14px;
+}
+
+.remember-me {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #666;
+
+  cursor: pointer;
+}
+
+.remember-checkbox {
+  width: 16px;
+  height: 16px;
+
+  accent-color: #d72d38;
+}
+
+.forgot-password {
+  color: #5b6ef5;
+
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.primary-button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #d72d38;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.primary-button:hover {
+  background: #c42832;
+}
+
+.register {
+  margin-top: 20px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+.register-link {
+  margin-left: 4px;
+
+  color: #5b6ef5;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Accessibility */
+
+.sr-only {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}

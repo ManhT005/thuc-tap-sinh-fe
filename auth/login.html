@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VSS Chat Platform - Đăng nhập</title>
+
+    <link rel="icon" href="images/logo.png" />
+
+    <link rel="stylesheet" href="style/auth-layout.css" />
+    <link rel="stylesheet" href="style/banner.css" />
+    <link rel="stylesheet" href="style/language.css" />
+    <link rel="stylesheet" href="style/auth-common.css" />
+    <link rel="stylesheet" href="style/login.css" />
+  </head>
+
+  <body>
+    <main class="auth-page">
+      <!-- Left Banner -->
+      <section class="left-panel">
+        <img
+          class="banner"
+          src="images/left_image.png"
+          alt="VSS Chat Platform"
+        />
+
+        <div class="banner-text">
+          <h1 class="banner-title">Hệ thống quản lý chat đa nền tảng</h1>
+
+          <p class="banner-description">
+            Tiết kiệm thời gian tư vấn và chăm sóc khách hàng
+          </p>
+        </div>
+
+        <div class="banner-dots">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <!-- Right -->
+      <aside class="right-panel">
+        <div class="language">🌐 Tiếng Việt ▼</div>
+
+        <section class="auth-card login-card">
+          <div>
+            <img
+              class="logo"
+              src="images/chat_logo.png"
+              alt="VSS Chat Platform"
+            />
+
+            <h4 class="login-title">Đăng nhập vào tài khoản của bạn</h4>
+
+            <form class="login-form" action="#" method="post">
+              <div class="form-group">
+                <label class="sr-only" for="username"> Tài khoản </label>
+
+                <input
+                  class="form-input"
+                  id="username"
+                  name="username"
+                  type="text"
+                  placeholder="Nhập tài khoản"
+                  autocomplete="username"
+                />
+              </div>
+
+              <div class="form-group">
+                <label class="sr-only" for="password"> Mật khẩu </label>
+
+                <input
+                  class="form-input"
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Nhập mật khẩu"
+                  autocomplete="current-password"
+                />
+              </div>
+
+              <div class="form-options">
+                <label class="remember-me">
+                  <input
+                    id="remember"
+                    class="remember-checkbox"
+                    type="checkbox"
+                  />
+
+                  <span>Lưu mật khẩu</span>
+                </label>
+
+                <a class="forgot-password" href="forgot_password.html">
+                  Quên mật khẩu?
+                </a>
+              </div>
+
+              <button class="primary-button" type="button">
+                Đăng nhập
+              </button>
+            </form>
+
+            <footer class="register">
+              <span>Bạn chưa có tài khoản?</span>
+
+              <a class="register-link" href="register.html"> Đăng ký </a>
+            </footer>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </body>
+</html>

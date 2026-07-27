@@ -1,0 +1,40 @@
+.logo {
+  display: block;
+
+  width: 180px;
+
+  margin: 0 auto 24px;
+}
+
+.login-title {
+  margin-bottom: 20px;
+
+  text-align: center;
+
+  color: #d72d38;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+.login-form {
+  display: flex;
+    
+  flex-direction: column;
+}
+
+.login-card{
+
+    width:100%;
+    max-width:400px;
+
+    padding:35px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
