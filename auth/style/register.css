@@ -1,0 +1,85 @@
+.logo {
+  display: block;
+
+  width: 140px;
+
+  margin: 0 auto 16px;
+}
+.register {
+  margin-top: 10px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+
+  background: #fff;
+
+  padding: 20px 36px;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.register-title {
+  margin: 18px 0 12px;
+
+  text-align: center;
+
+  color: #d72d38;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+
+  gap: 6px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-input {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: 1px solid #b7c0e6;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #5b6ef5;
+}
+
+.register-link {
+  margin-left: 4px;
+
+  color: #5b6ef5;
+
+  text-decoration: none;
+
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}

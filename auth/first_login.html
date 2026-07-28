@@ -45,8 +45,8 @@
 
         <section class="auth-card">
           <div class="forgot-header">
-            <a href="forgot_password.html"><span>< Quay lại</span></a>
-            <div class="forgot-header-text">Quên mật khẩu</div>
+            <a href="login.html"><span>< Quay lại</span></a>
+            <div class="forgot-header-text">Đổi mật khẩu</div>
           </div>
           <img
             class="logo"
@@ -54,28 +54,44 @@
             alt="VSS Chat Platform"
           />
           <div class="forgot-form">
-            <h4 class="forgot-title">Kiểm tra mail</h4>
+            <h4 class="forgot-title">Đăng nhập lần đầu</h4>
             <p class="notice-line">
-              Chúng tôi đã gửi cho bạn mã xác nhận. Vui lòng kiểm tra mã trong
-              email của bạn
+              Đây là lần đầu tiên đăng nhập của bạn, bước đầu tiên bạn cần đổi
+              mật khẩu để đảm bảo tính bảo mật cho tài khoản
             </p>
 
             <form>
-              <div class="get-otp">
-                <label class="sr-only" for="otp"> Tài khoản </label>
+              <div class="form-group">
+                <label class="sr-only" for="new_password"> Tài khoản </label>
 
                 <input
-                  class="otp-input"
-                  id="otp"
-                  name="otp"
+                  class="form-input"
+                  id="new_password"
+                  name="username"
                   type="text"
-                  placeholder="Nhập mã"
-                  autocomplete="one-time-code"
+                  placeholder="Nhập mật khẩu mới"
+                  autocomplete="username"
+                  style="margin-bottom: 16px"
                 />
-                <button id="get_otp_btn">Gửi lại mã</button>
+                <label class="sr-only" for="confirm_pasword"> Tài khoản </label>
+
+                <input
+                  class="form-input"
+                  id="confirm_pasword"
+                  name="confirm_pasword"
+                  type="text"
+                  placeholder="Nhập lại mật khẩu mới"
+                  autocomplete="confirm_pasword"
+                  style="margin-bottom: 20px"
+                />
               </div>
 
-              <button class="forgot-button" type="button">Tiếp tục</button>
+              <button
+                class="forgot-button"
+                type="button"
+              >
+                Tiếp tục
+              </button>
             </form>
           </div>
         </section>
