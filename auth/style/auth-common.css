@@ -31,18 +31,6 @@
   border-color: #d72d38;
 }
 
-.form-options {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin: 18px 0 24px;
-
-  font-size: 14px;
-}
-
 .remember-me {
   display: flex;
 
@@ -90,10 +78,16 @@
   transition: 0.2s;
 }
 
-.primary-button:hover {
+/* .primary-button:(not:disabled) {
   background: #c42832;
-}
+} */
 
+.primary-button:disabled {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  color: #999;
+  cursor: not-allowed;
+}
 .register {
   margin-top: 20px;
 

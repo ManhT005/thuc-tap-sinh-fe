@@ -19,20 +19,6 @@
   z-index: 2;
 }
 
-.form-input {
-  width: 70%;
-
-  height: 35px;
-
-  padding: 8px 50px 6px 16px;
-
-  border: 1px solid #98a4d8;
-  border-radius: 10px;
-
-  font-size: 16px;
-
-  outline: none;
-}
 
 .form-input:focus {
   border-color: #5b6ef5;

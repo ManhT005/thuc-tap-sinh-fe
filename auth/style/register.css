@@ -51,20 +51,6 @@
   flex: 1;
 }
 
-.form-input {
-  width: 100%;
-
-  padding: 10px 12px;
-
-  border: 1px solid #b7c0e6;
-
-  border-radius: 10px;
-
-  font-size: 12px;
-
-  outline: none;
-}
-
 .form-input:focus {
   border-color: #5b6ef5;
 }
