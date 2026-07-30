@@ -127,7 +127,8 @@ form.addEventListener("submit", (e) => {
     password.value.trim() === VALID_PASSWORD
   ) {
     alert("Đăng nhập thành công");
-    window.location.href = "../home.html";
+    // window.location.href = "../home.html";
+    window.location.href = "first_login.html";
   } else {
     loginAttempts++;
 
