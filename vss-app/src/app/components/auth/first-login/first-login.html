@@ -1,0 +1,62 @@
+<main class="auth-page">
+  <section class="left-panel">
+    <img class="banner" src="/images/left_image.png" alt="VSS Chat Platform" />
+
+    <div class="banner-text">
+      <h1 class="banner-title">Hệ thống quản lý chat đa nền tảng</h1>
+      <p class="banner-description">Tiết kiệm thời gian tư vấn và chăm sóc khách hàng</p>
+    </div>
+
+    <div class="banner-dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </section>
+
+  <aside class="right-panel">
+    <div class="language">🌐 Tiếng Việt ▼</div>
+
+    <section class="auth-card">
+      <div class="forgot-header">
+        <a routerLink="/login"><span>< Quay lại</span></a>
+        <div class="forgot-header-text">Đổi mật khẩu</div>
+      </div>
+      <img class="logo" src="/images/forgot_password.png" alt="VSS Chat Platform" />
+      <div class="forgot-form">
+        <h4 class="forgot-title">Đăng nhập lần đầu</h4>
+        <p class="notice-line">
+          Đây là lần đầu tiên đăng nhập của bạn, bước đầu tiên bạn cần đổi mật khẩu để đảm bảo tính
+          bảo mật cho tài khoản
+        </p>
+
+        <form (ngSubmit)="onContinue()">
+          <div class="form-group">
+            <label class="sr-only" for="new_password">Mật khẩu mới</label>
+            <input
+              class="form-input"
+              id="new_password"
+              name="new_password"
+              type="password"
+              placeholder="Nhập mật khẩu mới"
+              autocomplete="new-password"
+            />
+
+            <label class="sr-only" for="confirm_password">Nhập lại mật khẩu mới</label>
+            <input
+              class="form-input"
+              id="confirm_password"
+              name="confirm_password"
+              type="password"
+              placeholder="Nhập lại mật khẩu mới"
+              autocomplete="new-password"
+              style="margin-top: 16px"
+            />
+          </div>
+
+          <button class="forgot-button" type="submit">Tiếp tục</button>
+        </form>
+      </div>
+    </section>
+  </aside>
+</main>

@@ -1,0 +1,30 @@
+/* =========================
+   Messages
+========================= */
+@use "../base/variables" as *;
+.error-message,
+.error-text {
+  margin-top: 4px;
+
+  color: $error-color;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+.success-message {
+  margin-top: 4px;
+
+  color: $success-color;
+
+  font-size: 12px;
+}
+
+.info-message {
+  margin-top: 4px;
+
+  color: $info-color;
+
+  font-size: 12px;
+}

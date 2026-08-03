@@ -1,0 +1,59 @@
+.register-card {
+  width: 100%;
+  max-width: 480px;
+
+  padding: 20px 36px;
+
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    display: block;
+    width: 140px;
+    margin: 0 auto 16px;
+  }
+
+  .register-title {
+    margin: 18px 0 12px;
+    text-align: center;
+    color: #d72d38;
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 6px;
+
+    .form-group {
+      flex: 1;
+    }
+  }
+
+  .register {
+    margin-top: 10px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+  }
+
+  .register-link {
+    margin-left: 4px;
+    color: #5b6ef5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

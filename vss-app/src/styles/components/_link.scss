@@ -1,0 +1,16 @@
+/* =========================
+   Links
+========================= */
+@use "../base/variables" as *;
+
+.text-link {
+  color: $secondary-color;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
