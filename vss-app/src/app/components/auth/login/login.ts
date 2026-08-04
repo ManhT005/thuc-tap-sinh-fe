@@ -42,7 +42,8 @@ export class Login {
 
     if (username === 'admin@gmail.com' && password === 'Admin123') {
       this.loginError = null;
-      this.router.navigate(['/first-login']);
+      // this.router.navigate(['/first-login']);
+      this.router.navigate(['/users']);
       return;
     }
 

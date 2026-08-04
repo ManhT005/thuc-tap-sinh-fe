@@ -19,14 +19,14 @@
 .form-input {
   width: 100%;
 
-  padding: 14px;
+  padding: 10px;
 
   border: 1px solid $border-color;
   border-radius: 8px;
 
   outline: none;
 
-  transition: border-color .2s ease;
+  transition: border-color $transition-fast;
 }
 
 .form-input:focus {

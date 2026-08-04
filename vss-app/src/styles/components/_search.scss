@@ -1,0 +1,23 @@
+.search-box {
+  position: relative;
+
+  width: 320px;
+}
+
+.search-input {
+  width: 100%;
+
+  padding: 12px 16px 12px 42px;
+
+  border: 1px solid #dde2ec;
+  border-radius: 24px;
+}
+
+.search-icon {
+  position: absolute;
+
+  left: 16px;
+  top: 50%;
+
+  transform: translateY(-50%);
+}

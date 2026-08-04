@@ -1,0 +1,39 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,.35);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.modal {
+  width: 520px;
+  max-width: 90vw;
+
+  background: white;
+  border-radius: 16px;
+
+  padding: 24px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 24px;
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "email": "admin@gmail.com",
+    "first_name": "An",
+    "last_name": "Nguyễn",
+    "avatar": "https://i.pravatar.cc/150?img=1"
+  },
+  {
+    "id": 2,
+    "email": "user01@gmail.com",
+    "first_name": "Bình",
+    "last_name": "Trần",
+    "avatar": "https://i.pravatar.cc/150?img=2"
+  },
+  {
+    "id": 3,
+    "email": "demo@gmail.com",
+    "first_name": "Huy",
+    "last_name": "Lê",
+    "avatar": "https://i.pravatar.cc/150?img=3"
+  },
+  {
+    "id": 4,
+    "email": "test@gmail.com",
+    "first_name": "Lan",
+    "last_name": "Phạm",
+    "avatar": "https://i.pravatar.cc/150?img=4"
+  }
+]

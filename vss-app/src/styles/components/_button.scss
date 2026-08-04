@@ -1,35 +1,35 @@
+@use "../base/variables" as *;
+
 /* =========================
    Button
 ========================= */
-@use "../base/variables" as *;
 
 .primary-button {
   width: 100%;
 
-  padding: 14px;
+  padding: 10px;
 
   border: none;
-  border-radius: 8px;
+  border-radius: $radius-sm;
 
   background: $primary-color;
-
   color: $white;
 
   font-weight: 600;
 
   cursor: pointer;
 
-  transition: .2s;
+  transition: $transition-fast;
 }
 
 .primary-button:hover:not(:disabled) {
-  background: #c42832;
+  background: $primary-hover;
 }
 
 .primary-button:disabled {
   background: #d9d9d9;
 
-  color: $text-light;
+  color: #999;
 
   cursor: not-allowed;
 }

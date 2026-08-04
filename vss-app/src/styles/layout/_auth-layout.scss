@@ -1,6 +1,7 @@
 /* =========================
    Authentication Layout
 ========================= */
+@use "../base/variables" as *;
 
 .auth-page {
   display: flex;
@@ -10,7 +11,7 @@
 }
 
 .left-panel {
-  flex: 1.6;
+  flex: 1.9;
 
   position: relative;
 
@@ -26,9 +27,9 @@
   justify-content: center;
   align-items: center;
 
-  padding: 32px;
+  padding: 32px 24px;
 
-  background: #fff;
+  background: $white;
 }
 
 @media (max-width: 992px) {

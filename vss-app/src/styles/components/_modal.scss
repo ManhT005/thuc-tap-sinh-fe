@@ -1,0 +1,125 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+
+  z-index: 999;
+}
+
+.modal {
+  width: 520px;
+  max-width: 90vw;
+
+  background: #fff;
+
+  border-radius: 16px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
+
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.modal-header h3 {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  color: #202939;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+
+  padding: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #5d6785;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.secondary-button {
+  width: auto;
+
+  padding: 12px 22px;
+
+  border: 1px solid #d8dce7;
+  border-radius: 10px;
+
+  background: #fff;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.secondary-button:hover {
+  background: #f7f8fb;
+}
+
+.primary-button {
+  width: auto;
+  padding: 12px 22px;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  transition: .2s;
+}
+
+.icon-button:hover {
+  background: #f3f5fa;
+}

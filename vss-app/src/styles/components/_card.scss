@@ -1,12 +1,13 @@
+@use "../base/variables" as *;
+
 /* =========================
    Card
 ========================= */
-@use "../base/variables" as *;
 
 .auth-card {
   background: $white;
 
-  border-radius: 16px;
+  border-radius: $radius-lg;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
+  box-shadow: $card-shadow;
 }

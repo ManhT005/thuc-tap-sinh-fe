@@ -3,18 +3,29 @@
 ========================= */
 
 $primary-color: #d72d38;
+$primary-hover: #c42832;
 
 $secondary-color: #5b6ef5;
+$secondary-light: #8393f2;
 
-$text-primary: #222;
+$white: #ffffff;
 
-$text-secondary: #666;
+$text-primary: #222222;
+$text-secondary: #666666;
+$text-muted: #777777;
 
-$text-light: #777;
+$border-color: #dddddd;
 
-$border-color: #ddd;
+$error-color: #d72d38;
+$success-color: #16a34a;
+$info-color: #2563eb;
 
-$white: #fff;
+/* =========================
+   Radius
+========================= */
+
+$radius-sm: 8px;
+$radius-lg: 16px;
 
 /* =========================
    Shadow
@@ -23,9 +34,7 @@ $white: #fff;
 $card-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 
 /* =========================
-   Radius
+   Transition
 ========================= */
 
-$radius-sm: 8px;
-
-$radius-lg: 16px;
+$transition-fast: .2s ease;

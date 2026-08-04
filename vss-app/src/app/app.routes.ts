@@ -5,9 +5,21 @@ import { ForgotPassword } from './components/auth/forgot-password/forgot-passwor
 import { ForgotPasswordOtp } from './components/auth/forgot-password-otp/forgot-password-otp';
 import { SetPassword } from './components/auth/set-password/set-password';
 import { FirstLogin } from './components/auth/first-login/first-login';
+import { HomeLayout } from './components/home/layout/home-layout/home-layout';
+import { UserList } from './components/home/users/user-list/user-list';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: '',
+    component: HomeLayout,
+    children: [
+      {
+        path: 'users',
+        component: UserList,
+      },
+    ],
+  },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'forgot-password', component: ForgotPassword },

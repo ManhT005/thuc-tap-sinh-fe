@@ -1,0 +1,38 @@
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px 32px 32px;
+}
+.auth-card {
+  width: 90%;
+  max-width: 380px;
+}
+.logo {
+  width: 160px;
+
+  margin-bottom: 24px;
+}
+.form-group {
+  margin-bottom: 5px 0 5px 0;
+}
+
+.form-input {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.primary-button {
+  width: 100%;
+
+  padding: 10px 0 10px 0;
+  margin-top: 6px;
+
+  border: none;
+
+  border-radius: 8px;
+}

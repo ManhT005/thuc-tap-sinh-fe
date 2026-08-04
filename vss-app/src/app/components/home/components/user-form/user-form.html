@@ -1,0 +1,45 @@
+@if (visible) {
+  <div class="modal-backdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>
+          {{ user ? 'Sửa người dùng' : 'Thêm người dùng' }}
+        </h3>
+
+        <button class="icon-button" (click)="close.emit()">✕</button>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label>First name</label>
+
+          <input class="form-input" formControlName="first_name" />
+        </div>
+
+        <div class="form-group">
+          <label>Last name</label>
+
+          <input class="form-input" formControlName="last_name" />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+
+          <input class="form-input" formControlName="email" />
+        </div>
+
+        <div class="form-group">
+          <label>Avatar URL</label>
+
+          <input class="form-input" formControlName="avatar" />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="secondary-button" (click)="close.emit()">Hủy</button>
+
+          <button type="submit" class="primary-button">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
