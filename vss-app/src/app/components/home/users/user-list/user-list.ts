@@ -48,7 +48,39 @@ export class UserList {
   }
   deleteUser(id: number) {
     this.users.update((users) => users.filter((user) => user.id !== id));
+
+    this.userService.saveUsers(this.users());
   }
 
-  saveUser(user: User) {}
+  saveUser(user: User) {
+    // Thêm avatar mặc định nếu bỏ trống
+    if (!user.avatar?.trim()) {
+      user.avatar = '/images/default_avatar.png';
+    }
+
+    const users = this.users();
+
+    // Kiểm tra đang sửa hay thêm mới
+    const index = users.findIndex((u) => u.id === user.id);
+
+    if (index >= 0) {
+      // ===== Edit =====
+      this.users.update((users) => users.map((u) => (u.id === user.id ? user : u)));
+    } else {
+      // ===== Add =====
+      const nextId = Math.max(...users.map((u) => u.id), 0) + 1;
+
+      this.users.update((users) => [
+        ...users,
+        {
+          ...user,
+          id: nextId,
+        },
+      ]);
+    }
+
+    this.userService.saveUsers(this.users());
+
+    this.closeModal();
+  }
 }

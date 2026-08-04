@@ -35,11 +35,19 @@ export class UserForm implements OnChanges {
   }
 
   submit() {
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    const value = this.form.getRawValue();
 
     this.save.emit({
-      id: this.user?.id ?? Date.now(),
-      ...this.form.getRawValue(),
-    } as User);
+      id: this.user?.id ?? 0,
+      first_name: value.first_name ?? '',
+      last_name: value.last_name ?? '',
+      email: value.email ?? '',
+      avatar: value.avatar ?? '',
+    });
   }
 }
