@@ -1,5 +1,5 @@
 .topbar {
-  height: 64px;
+  height: 40px;
 
   display: flex;
   justify-content: space-between;
@@ -17,7 +17,7 @@
 }
 
 .tab {
-  min-width: 220px;
+  min-width: 120px;
 
   display: flex;
   align-items: center;
@@ -37,6 +37,11 @@
   background: #fff;
 
   border-top: 3px solid #d72d38;
+  padding: 0 12px;
+
+  .tab-title {
+    font-size: 12px;
+  }
 }
 
 .close-btn {
@@ -81,8 +86,8 @@
 }
 
 .notification svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .notification::after {
@@ -115,8 +120,8 @@
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 
   display: flex;
   align-items: center;
@@ -135,12 +140,14 @@
 }
 
 .profile-menu {
+  display:flex;
+  align-items: center;
   position: absolute;
 
-  top: calc(100% + 12px);
-  left: -80%;
+  top: calc(100% + 8px);
+  left: -85%;
 
-  min-width: 120px;
+  min-width: 80px;
 
   background: #fff;
 
@@ -157,18 +164,16 @@
 .menu-item {
   width: 100%;
 
-  padding: 14px 18px;
+  padding: 10px 12px;
 
-  display: flex;
-  align-items: center;
   gap: 10px;
 
   border: none;
   background: transparent;
 
   cursor: pointer;
-
-  font-size: 14px;
+  align-items: center;
+  font-size: 11px;
   color: #4d566b;
 
   transition: 0.2s;
