@@ -48,6 +48,15 @@
       </svg>
     </button>
 
-    <div class="avatar">A</div>
+    <div class="profile" (click)="toggleMenu($event)">
+      <div class="avatar">A</div>
+
+      <div class="profile-menu" *ngIf="showMenu()">
+        <button class="menu-item" (click)="logout()">
+          <!-- icon logout -->
+          <span>Đăng xuất</span>
+        </button>
+      </div>
+    </div>
   </div>
 </header>

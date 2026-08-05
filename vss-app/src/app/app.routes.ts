@@ -7,16 +7,21 @@ import { SetPassword } from './components/auth/set-password/set-password';
 import { FirstLogin } from './components/auth/first-login/first-login';
 import { HomeLayout } from './components/home/layout/home-layout/home-layout';
 import { UserList } from './components/home/users/user-list/user-list';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '',
-    component: HomeLayout,
+    canActivate: [authGuard],
     children: [
       {
         path: 'users',
-        component: UserList,
+        component: HomeLayout,
+        children: [{
+          path: '',
+          component: UserList,
+        }]
       },
     ],
   },

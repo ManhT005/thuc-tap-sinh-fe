@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AuthService } from '../../../core/services/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -13,12 +15,16 @@ import { Router, RouterModule } from '@angular/router';
 export class Login {
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
   readonly loginForm = this.fb.nonNullable.group({
     username: ['', [Validators.required, Validators.email]],
     password: [
       '',
-      [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)],
+      [
+        Validators.required,
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/),
+      ],
     ],
     remember: false,
   });
@@ -42,8 +48,11 @@ export class Login {
 
     if (username === 'admin@gmail.com' && password === 'Admin123') {
       this.loginError = null;
-      // this.router.navigate(['/first-login']);
+
+      this.authService.login();
+
       this.router.navigate(['/users']);
+
       return;
     }
 
