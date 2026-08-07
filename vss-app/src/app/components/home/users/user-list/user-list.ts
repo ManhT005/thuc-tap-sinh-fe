@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserService } from '../../../../core/services/user.service';
 import { User } from '../../../../core/models/user.model';
+
 import { UserForm } from '../../components/user-form/user-form';
 
 @Component({
@@ -20,12 +21,13 @@ export class UserList {
   selectedUser = signal<User | null>(null);
 
   ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers() {
     this.userService.getUsers().subscribe({
-      next: (users) => {
-        console.log(users);
-        this.users.set(users);
-      },
-      error: (err) => console.error(err),
+      next: (users) => this.users.set(users),
+      error: console.error,
     });
   }
 
@@ -38,49 +40,54 @@ export class UserList {
     this.showModal.set(false);
   }
 
-  trackById(index: number, user: User): number {
-    return user.id;
-  }
-
   editUser(user: User) {
     this.selectedUser.set(user);
     this.showModal.set(true);
   }
-  deleteUser(id: number) {
-    this.users.update((users) => users.filter((user) => user.id !== id));
 
-    this.userService.saveUsers(this.users());
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe({
+      next: () => {
+        this.users.update((users) => users.filter((u) => u.id !== id));
+      },
+      error: console.error,
+    });
   }
 
   saveUser(user: User) {
-    // Thêm avatar mặc định nếu bỏ trống
-    if (!user.avatar?.trim()) {
-      user.avatar = '/images/default_avatar.png';
+    if (!user.avatar.trim()) {
+      user.avatar =
+        'https://reqres.in/img/faces/1-image.jpg';
     }
 
-    const users = this.users();
+    const existed = this.users().some((u) => u.id === user.id);
 
-    // Kiểm tra đang sửa hay thêm mới
-    const index = users.findIndex((u) => u.id === user.id);
+    if (existed) {
+      this.userService.updateUser(user).subscribe({
+        next: () => {
+          this.users.update((users) =>
+            users.map((u) => (u.id === user.id ? user : u))
+          );
 
-    if (index >= 0) {
-      // ===== Edit =====
-      this.users.update((users) => users.map((u) => (u.id === user.id ? user : u)));
-    } else {
-      // ===== Add =====
-      const nextId = Math.max(...users.map((u) => u.id), 0) + 1;
-
-      this.users.update((users) => [
-        ...users,
-        {
-          ...user,
-          id: nextId,
+          this.closeModal();
         },
-      ]);
+        error: console.error,
+      });
+    } else {
+      this.userService.createUser(user).subscribe({
+        next: (res) => {
+          this.users.update((users) => [
+            ...users,
+            {
+              ...user,
+              id: Number(res.id),
+            },
+          ]);
+
+          this.closeModal();
+        },
+        error: console.error,
+      });
     }
-
-    this.userService.saveUsers(this.users());
-
-    this.closeModal();
   }
 }

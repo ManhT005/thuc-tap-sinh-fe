@@ -90,7 +90,10 @@
         @for (user of users(); track user.id) {
           <tr>
             <td>
-              <img class="avatar" [src]="user.avatar" [alt]="user.first_name" />
+              <img class="avatar" 
+              [src]="user.avatar" 
+              [alt]="user.first_name" />
+               <!-- <td>{{ user.avatar }}</td> -->
             </td>
 
             <td>{{ user.email }}</td>

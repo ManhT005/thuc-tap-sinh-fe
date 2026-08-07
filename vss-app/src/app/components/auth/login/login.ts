@@ -4,7 +4,6 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -23,7 +22,8 @@ export class Login {
       '',
       [
         Validators.required,
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/),
+        Validators.minLength(8),
+        // Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/),
       ],
     ],
     remember: false,
@@ -46,16 +46,14 @@ export class Login {
 
     const { username, password } = this.loginForm.getRawValue();
 
-    if (username === 'admin@gmail.com' && password === 'Admin123') {
-      this.loginError = null;
-
-      this.authService.login();
-
-      this.router.navigate(['/users']);
-
-      return;
-    }
-
-    this.loginError = 'Sai tài khoản hoặc mật khẩu. Vui lòng thử lại.';
+    this.authService.login(username, password).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigate(['/users']);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
   }
 }

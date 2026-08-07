@@ -1,6 +1,20 @@
-import { Component, EventEmitter, Input, Output, inject, OnChanges } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+  OnChanges,
+} from '@angular/core';
+
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+
 import { CommonModule } from '@angular/common';
+
 import { User } from '../../../../core/models/user.model';
 
 @Component({
