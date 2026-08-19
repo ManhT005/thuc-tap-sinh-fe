@@ -1,13 +1,37 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { finalize } from 'rxjs';
+
 import { AuthService } from '../../../core/services/auth';
+
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+    NzCheckboxModule,
+    NzAlertModule,
+    NzIconModule,
+  ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -23,7 +47,6 @@ export class Login {
       [
         Validators.required,
         Validators.minLength(8),
-        // Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/),
       ],
     ],
     remember: false,
@@ -31,29 +54,55 @@ export class Login {
 
   readonly f = this.loginForm.controls;
 
-  showPassword = false;
-  loginError: string | null = null;
+  // Angular Signals
+  readonly showPassword = signal(false);
+  readonly loading = signal(false);
+  readonly loginError = signal<string | null>(null);
 
   togglePassword(): void {
-    this.showPassword = !this.showPassword;
+    this.showPassword.update(value => !value);
   }
 
   onSubmit(): void {
+    console.log('SUBMIT');
+
+    this.loginError.set(null);
+
     if (this.loginForm.invalid) {
+      console.log('FORM INVALID');
+
       this.loginForm.markAllAsTouched();
       return;
     }
 
     const { username, password } = this.loginForm.getRawValue();
 
-    this.authService.login(username, password).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.router.navigate(['/users']);
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
+    console.log('LOGIN:', username);
+
+    this.loading.set(true);
+
+    this.authService
+      .login(username, password)
+      .pipe(
+        finalize(() => {
+          console.log('FINALIZE');
+          this.loading.set(false);
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('LOGIN SUCCESS:', res);
+
+          this.router.navigate(['/users']);
+        },
+
+        error: (err) => {
+          console.error('LOGIN ERROR:', err);
+
+          this.loginError.set(
+            'Tài khoản hoặc mật khẩu không chính xác.'
+          );
+        },
+      });
   }
 }
