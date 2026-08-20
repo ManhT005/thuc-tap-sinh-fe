@@ -5,3 +5,8 @@ export interface User {
   last_name: string;
   avatar: string;
 }
+
+export interface CreateUserResponse {
+  id: string;
+  createdAt: string;
+}

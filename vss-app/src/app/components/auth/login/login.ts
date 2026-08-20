@@ -16,6 +16,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     NzCheckboxModule,
     NzAlertModule,
     NzIconModule,
+    NzSelectModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -64,20 +66,14 @@ export class Login {
   }
 
   onSubmit(): void {
-    console.log('SUBMIT');
-
     this.loginError.set(null);
 
     if (this.loginForm.invalid) {
-      console.log('FORM INVALID');
-
       this.loginForm.markAllAsTouched();
       return;
     }
 
     const { username, password } = this.loginForm.getRawValue();
-
-    console.log('LOGIN:', username);
 
     this.loading.set(true);
 
@@ -85,14 +81,12 @@ export class Login {
       .login(username, password)
       .pipe(
         finalize(() => {
-          console.log('FINALIZE');
+          // console.log('FINALIZE');
           this.loading.set(false);
         })
       )
       .subscribe({
         next: (res) => {
-          console.log('LOGIN SUCCESS:', res);
-
           this.router.navigate(['/users']);
         },
 

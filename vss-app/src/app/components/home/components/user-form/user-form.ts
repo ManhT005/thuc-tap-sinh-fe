@@ -15,12 +15,26 @@ import {
 
 import { CommonModule } from '@angular/common';
 
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
 import { User } from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+
+    // NG-ZORRO
+    NzFormModule,
+    NzInputModule,
+    NzButtonModule,
+  ],
+
   templateUrl: './user-form.html',
   styleUrl: './user-form.scss',
 })
@@ -40,7 +54,7 @@ export class UserForm implements OnChanges {
     avatar: [''],
   });
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     if (this.user) {
       this.form.patchValue(this.user);
     } else {
@@ -48,7 +62,7 @@ export class UserForm implements OnChanges {
     }
   }
 
-  submit() {
+  submit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;

@@ -1,4 +1,104 @@
 <section class="page">
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h2>Danh sách người dùng</h2>
+      <p>Quản lý tài khoản người dùng trong hệ thống</p>
+    </div>
+
+    <button nz-button class="add-button" (click)="openAdd()">
+      <span nz-icon nzType="plus"></span>
+      Thêm người dùng
+    </button>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <nz-input-group nzPrefixIcon="search" class="search-box">
+        <input nz-input type="text" placeholder="Tìm theo email..." />
+      </nz-input-group>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrapper">
+    <nz-table #userTable [nzData]="users()" [nzFrontPagination]="false" [nzShowPagination]="false">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Email</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (user of userTable.data; track user.id) {
+          <tr>
+            <!-- Avatar -->
+            <td>
+              <nz-avatar [nzSrc]="user.avatar" [nzAlt]="user.first_name" [nzSize]="40"></nz-avatar>
+            </td>
+
+            <!-- Email -->
+            <td>
+              {{ user.email }}
+            </td>
+
+            <!-- First name -->
+            <td>
+              {{ user.first_name }}
+            </td>
+
+            <!-- Last name -->
+            <td>
+              {{ user.last_name }}
+            </td>
+
+            <!-- Actions -->
+            <td>
+              <div class="action-column">
+                <button
+                  nz-button
+                  nzType="text"
+                  nz-tooltip
+                  nzTooltipTitle="Sửa"
+                  (click)="editUser(user)"
+                >
+                  <span nz-icon nzType="edit"></span>
+                </button>
+
+                <button
+                  nz-button
+                  nzType="text"
+                  nzDanger
+                  nz-tooltip
+                  nzTooltipTitle="Xóa"
+                  (click)="deleteUser(user.id)"
+                >
+                  <span nz-icon nzType="delete"></span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </nz-table>
+  </div>
+</section>
+
+<!-- User form -->
+<app-user-form
+  [visible]="showModal()"
+  [user]="selectedUser()"
+  (close)="closeModal()"
+  (save)="saveUser($event)"
+></app-user-form>
+
+<!-- 
+<section class="page">
   <div class="page-header">
     <div>
       <h2>Danh sách người dùng</h2>
@@ -93,7 +193,7 @@
               <img class="avatar" 
               [src]="user.avatar" 
               [alt]="user.first_name" />
-               <!-- <td>{{ user.avatar }}</td> -->
+              
             </td>
 
             <td>{{ user.email }}</td>
@@ -174,3 +274,4 @@
   (close)="closeModal()"
   (save)="saveUser($event)"
 ></app-user-form>
+--->

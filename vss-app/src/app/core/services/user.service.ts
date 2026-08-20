@@ -4,11 +4,8 @@ import { map, Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 
-import { User } from '../models/user.model';
-import {
-  ReqresUser,
-  ReqresUsersResponse,
-} from '../models/reqres-user.model';
+import { CreateUserResponse, User } from '../models/user.model';
+import { ReqresUser, ReqresUsersResponse } from '../models/reqres-user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,24 +24,11 @@ export class UserService {
       .get<ReqresUsersResponse>(`${this.API}?page=1`, {
         headers: this.headers,
       })
-      .pipe(
-        map((res) => res.data.map((u) => this.toUser(u)))
-      );
+      .pipe(map((res) => res.data.map((u) => this.toUser(u))));
   }
 
-  createUser(user: User): Observable<{ id: string }> {
-    return this.http.post<{ id: string }>(
-      this.API,
-      {
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-        avatar: user.avatar,
-      },
-      {
-        headers: this.headers,
-      }
-    );
+  createUser(user: User): Observable<CreateUserResponse> {
+    return this.http.post<CreateUserResponse>(`${this.API}`, user);
   }
 
   updateUser(user: User): Observable<any> {
@@ -58,7 +42,7 @@ export class UserService {
       },
       {
         headers: this.headers,
-      }
+      },
     );
   }
 

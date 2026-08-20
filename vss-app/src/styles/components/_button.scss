@@ -1,4 +1,4 @@
-@use "../base/variables" as *;
+@use '../base/variables' as *;
 
 /* =========================
    Button
@@ -32,4 +32,28 @@
   color: #999;
 
   cursor: not-allowed;
+}
+
+.secondary-button {
+  width: 100%;
+
+  padding: 10px;
+
+  border: none;
+  border-radius: $radius-sm;
+
+  background: $white;
+  color: $text-primary;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: $transition-fast;
+}
+
+[nz-button]{
+  display: flex;
+  justify-content: center;
+  align-items: center
 }

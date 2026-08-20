@@ -93,3 +93,15 @@
 .register-link:hover {
   text-decoration: underline;
 }
+
+[nz-button]:not(:disabled) {
+  background-color: #d72d38;
+}
+
+[nz-button]:disabled {
+  background: #d9d9d9;
+
+  color: #999;
+
+  cursor: not-allowed;
+}
