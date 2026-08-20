@@ -1,16 +1,13 @@
 .register-card {
   width: 100%;
   max-width: 480px;
+  box-sizing: border-box;
 
   padding: 20px 36px;
 
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-
-  .form-group {
-    margin-bottom: 10px;
-  }
 
   .logo {
     display: block;
@@ -22,19 +19,32 @@
     margin: 18px 0 12px;
     text-align: center;
     color: #d72d38;
+    font-weight: 700;
   }
 
   .register-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+  }
+
+  nz-form-item {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nz-select {
+    width: 100%;
   }
 
   .form-row {
     display: flex;
-    gap: 6px;
+    gap: 12px;
+    width: 100%;
 
-    .form-group {
+    nz-form-item {
       flex: 1;
+      min-width: 0;
     }
   }
 

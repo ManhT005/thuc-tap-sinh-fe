@@ -4,6 +4,7 @@
 
     <div class="banner-text">
       <h1 class="banner-title">Hệ thống quản lý chat đa nền tảng</h1>
+
       <p class="banner-description">Tiết kiệm thời gian tư vấn và chăm sóc khách hàng</p>
     </div>
 
@@ -22,55 +23,147 @@
 
       <h4 class="register-title">Đăng ký tài khoản</h4>
 
-      <form class="register-form">
+      <form
+        nz-form
+        [formGroup]="registerForm"
+        (ngSubmit)="submit()"
+        nzLayout="vertical"
+        class="register-form"
+      >
+        <!-- Họ + Tên -->
         <div class="form-row">
-          <div class="form-group">
-            <input class="form-input" type="text" placeholder="Nhập họ của bạn" />
-          </div>
-          <div class="form-group">
-            <input class="form-input" type="text" placeholder="Nhập tên của bạn" />
-          </div>
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="lastNameError">
+              <input nz-input formControlName="lastName" placeholder="Nhập họ của bạn" />
+
+              <ng-template #lastNameError>
+                @if (f.lastName.errors?.['required']) {
+                  <span>Vui lòng nhập họ</span>
+                }
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="firstNameError">
+              <input nz-input formControlName="firstName" placeholder="Nhập tên của bạn" />
+
+              <ng-template #firstNameError>
+                @if (f.firstName.errors?.['required']) {
+                  <span>Vui lòng nhập tên</span>
+                }
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
         </div>
 
-        <div class="form-group">
-          <input class="form-input" type="email" placeholder="Nhập email làm việc" />
-        </div>
+        <!-- Email -->
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="emailError">
+            <input
+              nz-input
+              type="email"
+              formControlName="email"
+              placeholder="Nhập email làm việc"
+            />
 
+            <ng-template #emailError>
+              @if (f.email.errors?.['required']) {
+                <span>Vui lòng nhập email</span>
+              }
+
+              @if (f.email.errors?.['email']) {
+                <span>Email không đúng định dạng</span>
+              }
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Công ty + Quốc gia -->
         <div class="form-row">
-          <div class="form-group">
-            <input class="form-input" type="text" placeholder="Nhập tên công ty" />
-          </div>
-          <div class="form-group select-group">
-            <select class="form-input">
-              <option selected disabled>Quốc gia</option>
-              <option>Việt Nam</option>
-              <option>Japan</option>
-              <option>Korea</option>
-            </select>
-          </div>
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="companyError">
+              <input nz-input formControlName="company" placeholder="Nhập tên công ty" />
+
+              <ng-template #companyError>
+                @if (f.company.errors?.['required']) {
+                  <span>Vui lòng nhập tên công ty</span>
+                }
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="countryError">
+              <nz-select formControlName="country" nzPlaceHolder="Quốc gia" nzAllowClear>
+                <nz-option nzValue="vietnam" nzLabel="Việt Nam" />
+
+                <nz-option nzValue="japan" nzLabel="Japan" />
+
+                <nz-option nzValue="korea" nzLabel="Korea" />
+              </nz-select>
+
+              <ng-template #countryError>
+                @if (f.country.errors?.['required']) {
+                  <span>Vui lòng chọn quốc gia</span>
+                }
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
         </div>
 
-        <div class="form-group select-group">
-          <select class="form-input">
-            <option selected disabled>Lĩnh vực</option>
-            <option>IT</option>
-            <option>Marketing</option>
-          </select>
-        </div>
+        <!-- Lĩnh vực -->
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="fieldError">
+            <nz-select formControlName="field" nzPlaceHolder="Lĩnh vực" nzAllowClear>
+              <nz-option nzValue="it" nzLabel="IT" />
 
-        <div class="form-group">
-          <input class="form-input" type="text" placeholder="Vị trí làm việc" />
-        </div>
+              <nz-option nzValue="marketing" nzLabel="Marketing" />
+            </nz-select>
 
-        <div class="form-group">
-          <input class="form-input" placeholder="Mục đích bạn đến với website" />
-        </div>
+            <ng-template #fieldError>
+              @if (f.field.errors?.['required']) {
+                <span>Vui lòng chọn lĩnh vực</span>
+              }
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
 
-        <button class="primary-button" type="button">Đăng ký</button>
+        <!-- Vị trí -->
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="positionError">
+            <input nz-input formControlName="position" placeholder="Vị trí làm việc" />
+
+            <ng-template #positionError>
+              @if (f.position.errors?.['required']) {
+                <span>Vui lòng nhập vị trí làm việc</span>
+              }
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Mục đích -->
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="purposeError">
+            <input nz-input formControlName="purpose" placeholder="Mục đích bạn đến với website" />
+
+            <ng-template #purposeError>
+              @if (f.purpose.errors?.['required']) {
+                <span>Vui lòng nhập mục đích</span>
+              }
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+
+        <!-- Submit -->
+        <button nz-button nzType="primary" nzBlock type="submit" class="primary-button">
+          Đăng ký
+        </button>
       </form>
 
       <footer class="register">
         <span>Bạn đã có tài khoản?</span>
+
         <a class="register-link" routerLink="/login"> Đăng nhập </a>
       </footer>
     </section>
