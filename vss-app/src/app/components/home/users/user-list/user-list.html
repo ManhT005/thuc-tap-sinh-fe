@@ -16,11 +16,20 @@
   <div class="toolbar">
     <div class="toolbar-left">
       <nz-input-group nzPrefixIcon="search" class="search-box">
-        <input nz-input type="text" placeholder="Tìm theo email..." />
+        <input nz-input type="text" placeholder="Tìm theo email..." (input)="onSearch($event)" />
       </nz-input-group>
+
+      <button
+        nz-button
+        nzType="default"
+        nz-tooltip
+        nzTooltipTitle="Tải lại danh sách"
+        (click)="refreshUsers()"
+      >
+        ↻
+      </button>
     </div>
   </div>
-
   <!-- Table -->
   <div class="table-wrapper">
     <nz-table #userTable [nzData]="users()" [nzFrontPagination]="false" [nzShowPagination]="false">
