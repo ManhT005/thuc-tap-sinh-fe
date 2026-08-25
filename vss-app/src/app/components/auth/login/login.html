@@ -122,10 +122,9 @@
             nz-button
             nzType="primary"
             class="primary-button"
-            [ngStyle]="{ display: 'flex', 'justify-content': 'center', 'align-items': 'center' }"
             nzBlock
             type="submit"
-            [disabled]="loginForm.invalid"
+            [disabled]="loading()"
             [nzLoading]="loading()"
           >
             Đăng nhập
